@@ -1,9 +1,12 @@
 # PyAutoScan
 
 [![GitHub](https://img.shields.io/badge/GitHub-PyAutoScan-blue?style=for-the-badge&logo=github)](https://github.com/Pandiyarajk/pyautoscan)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://img.shields.io/pypi/v/pyautoscan.svg)](https://pypi.org/project/pyautoscan/)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
+[![Build PyAutoScan Executable](https://github.com/Pandiyarajk/pyautoscan/actions/workflows/build.yml/badge.svg)](https://github.com/Pandiyarajk/pyautoscan/actions/workflows/build.yml)
+
 
 A Python-based Windows scanning automation tool for printer/scanner devices using WIA.
 
@@ -250,3 +253,4 @@ If you encounter any issues or have questions:
 ---
 
 **Note**: This tool is designed specifically for Windows systems and requires a compatible scanner with WIA drivers.
+
