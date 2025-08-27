@@ -191,10 +191,10 @@ The project uses GitHub Actions for continuous integration:
 pip install pyinstaller
 
 # Build basic scanner
-pyinstaller --onefile --windowed basic_scan.py
+pyinstaller --onefile --windowed pyautoscan/basic_scan.py
 
 # Build advanced scanner
-pyinstaller --onefile --windowed advanced_scan.py
+pyinstaller --onefile --windowed pyautoscan/advanced_scan.py
 ```
 
 **Note:** Successfully tested with Python 3.13 and HP Printer scanner features.
@@ -264,4 +264,5 @@ If you encounter any issues or have questions:
 ---
 
 **Note**: This tool is designed specifically for Windows systems and requires a compatible scanner with WIA drivers.
+
 
