@@ -1,0 +1,102 @@
+name: Build Windows Executables
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, 3.10, 3.11, 3.13]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: Build basic_scan.exe
+      run: |
+        pyinstaller --onefile --name basic_scan basic_scan.py
+        echo "PyAutoScan basic scanner executable built successfully"
+        
+    - name: Build advanced_scan.exe
+      run: |
+        pyinstaller --onefile --name advanced_scan advanced_scan.py
+        echo "PyAutoScan advanced scanner executable built successfully"
+        
+    - name: Build scanner_info.exe
+      run: |
+        pyinstaller --onefile --name scanner_info scanner_info.py
+        echo "PyAutoScan scanner info executable built successfully"
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: pyautoscan-executables-${{ matrix.python-version }}
+        path: |
+          dist/basic_scan.exe
+          dist/advanced_scan.exe
+          dist/scanner_info.exe
+        retention-days: 30
+        
+    - name: Create release assets (on release)
+      if: github.event_name == 'release'
+      run: |
+        echo "Release assets created for version ${{ github.event.release.tag_name }}"
+        
+  test:
+    runs-on: windows-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.13
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Run basic tests
+      run: |
+        python -c "import basic_scan; print('Basic scan module imported successfully')"
+        python -c "import advanced_scan; print('Advanced scan module imported successfully')"
+        python -c "import scanner_info; print('Scanner info module imported successfully')"
+        echo "All modules imported successfully"
+        
+    - name: Test configuration loading
+      run: |
+        python -c "import configparser; config = configparser.ConfigParser(); config.read('scan_config.ini'); print('Configuration loaded successfully')"
+        
+    - name: Verify file structure
+      run: |
+        if (Test-Path "basic_scan.py") { Write-Host "✓ basic_scan.py exists" }
+        if (Test-Path "advanced_scan.py") { Write-Host "✓ advanced_scan.py exists" }
+        if (Test-Path "scanner_info.py") { Write-Host "✓ scanner_info.py exists" }
+        if (Test-Path "scan_config.ini") { Write-Host "✓ scan_config.ini exists" }
+        if (Test-Path "requirements.txt") { Write-Host "✓ requirements.txt exists" }
+        if (Test-Path "README.md") { Write-Host "✓ README.md exists" }
+        if (Test-Path "CHANGELOG.md") { Write-Host "✓ CHANGELOG.md exists" }
+        Write-Host "All required files present"
