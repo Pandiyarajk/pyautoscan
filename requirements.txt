@@ -1,0 +1,25 @@
+# PyAutoScan - Dependencies
+# Core dependencies for scanner functionality
+# Tested on Python 3.13 with HP Printer scanner features
+
+# Windows COM integration (required for WIA)
+pywin32>=306
+
+# Image processing and PDF creation
+Pillow>=9.0.0
+
+# Enhanced logging with Rich console output and file rotation
+powerlogger>=0.1.0
+
+# Configuration file handling (built-in, but listed for clarity)
+# configparser - built into Python 3.2+
+
+# Optional dependencies for enhanced functionality
+# opencv-python>=4.5.0  # For advanced image processing (deskew, auto-crop)
+# numpy>=1.21.0         # Required by opencv-python
+
+# Development dependencies (optional)
+# pyinstaller>=5.0.0    # For building executables
+# pytest>=7.0.0         # For testing
+# black>=22.0.0         # For code formatting
+# flake8>=4.0.0         # For linting
