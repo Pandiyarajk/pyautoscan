@@ -143,20 +143,31 @@ combine_pdf = false
 
 ```
 pyautoscan/
-├── basic_scan.py          # Basic scanning functionality
-├── advanced_scan.py       # Advanced scanning with auto-processing
-├── scanner_info.py        # Scanner detection and information
-├── scan_config.ini        # Configuration file
-├── requirements.txt       # Python dependencies
-├── setup.py               # PyPI distribution setup
-├── README.md             # This file
-├── CHANGELOG.md          # Version history
-├── TESTING.md            # Testing documentation and results
-├── LICENSE               # MIT License
-├── .github/workflows/    # GitHub Actions CI/CD
-├── .gitignore            # Git ignore file
-├── run_scanner.bat       # Windows batch launcher
-└── Scans/                # Output directory for scanned files
+├── 📁 pyautoscan/           # Main package
+│   ├── __init__.py          # Package initialization
+│   ├── basic_scan.py        # Basic scanning functionality
+│   ├── advanced_scan.py     # Advanced scanning features
+│   └── scanner_info.py      # Scanner information utility
+├── 📁 tests/                # Test suite
+│   ├── __init__.py
+│   └── test_basic_scan.py
+├── 📁 .github/              # GitHub Actions workflows
+├── 📁 Scans/                # Output directory (gitignored)
+├── 📄 README.md             # Main documentation
+├── 📄 DEVELOPMENT.md        # Development guide
+├── 📄 TESTING.md            # Testing documentation
+├── 📄 CHANGELOG.md          # Version history
+├── 📄 LICENSE               # MIT License
+├── 📄 requirements.txt      # Production dependencies
+├── 📄 requirements-dev.txt  # Development dependencies
+├── 📄 pyproject.toml       # Modern Python packaging
+├── 📄 setup.py             # Traditional packaging
+├── 📄 MANIFEST.in          # Package file inclusion
+├── 📄 .gitignore           # Git ignore rules
+├── �� .pre-commit-config.yaml  # Code quality hooks
+├── 📄 Makefile             # Development commands
+├── 📄 run_scanner.bat      # Windows launcher
+└── 📄 scan_config.ini      # Configuration file
 ```
 
 ## 🔧 Development
@@ -253,3 +264,4 @@ If you encounter any issues or have questions:
 ---
 
 **Note**: This tool is designed specifically for Windows systems and requires a compatible scanner with WIA drivers.
+
