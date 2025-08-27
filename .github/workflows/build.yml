@@ -33,17 +33,17 @@ jobs:
         
     - name: Build basic_scan.exe
       run: |
-        pyinstaller --onefile --name basic_scan basic_scan.py
+        pyinstaller --onefile --name basic_scan pyautoscan\basic_scan.py
         echo "PyAutoScan basic scanner executable built successfully"
         
     - name: Build advanced_scan.exe
       run: |
-        pyinstaller --onefile --name advanced_scan advanced_scan.py
+        pyinstaller --onefile --name advanced_scan pyautoscan\advanced_scan.py
         echo "PyAutoScan advanced scanner executable built successfully"
         
     - name: Build scanner_info.exe
       run: |
-        pyinstaller --onefile --name scanner_info scanner_info.py
+        pyinstaller --onefile --name scanner_info pyautoscan\scanner_info.py
         echo "PyAutoScan scanner info executable built successfully"
         
     - name: Upload artifacts
