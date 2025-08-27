@@ -1,0 +1,11 @@
+include README.md
+include CHANGELOG.md
+include TESTING.md
+include LICENSE
+include requirements.txt
+include scan_config.ini
+include run_scanner.bat
+include .github/workflows/build.yml
+recursive-include .github/workflows *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

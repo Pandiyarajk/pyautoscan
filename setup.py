@@ -61,9 +61,9 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "pyautoscan=basic_scan:main",
-            "pyautoscan-advanced=advanced_scan:main",
-            "pyautoscan-info=scanner_info:main",
+            "pyautoscan=basic_scan:auto_scan",
+            "pyautoscan-advanced=advanced_scan:auto_scan",
+            "pyautoscan-info=scanner_info:get_scanner_info",
         ],
     },
     include_package_data=True,

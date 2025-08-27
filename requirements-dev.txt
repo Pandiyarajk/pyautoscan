@@ -1,0 +1,33 @@
+# Development dependencies for PyAutoScan
+# Install with: pip install -r requirements-dev.txt
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+
+# Code formatting and linting
+black>=22.0.0
+isort>=5.0.0
+flake8>=4.0.0
+flake8-docstrings>=1.6.0
+
+# Type checking
+mypy>=1.0.0
+types-Pillow>=9.0.0
+
+# Security scanning
+bandit>=1.7.0
+
+# Documentation
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
+
+# Build tools
+pyinstaller>=5.0.0
+wheel>=0.37.0
+build>=0.8.0
+
+# Development utilities
+pre-commit>=2.20.0
+tox>=3.25.0

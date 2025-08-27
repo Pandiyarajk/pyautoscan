@@ -253,4 +253,3 @@ If you encounter any issues or have questions:
 ---
 
 **Note**: This tool is designed specifically for Windows systems and requires a compatible scanner with WIA drivers.
-
